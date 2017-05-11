@@ -94,6 +94,9 @@ spec:
     - mountPath: "{{ kube_config_dir }}/cloud_config"
       name: cloudconfig
       readOnly: true
+    - mountPath: /var/lib/cloud/data
+      name: clouddata
+      readOnly: true
 {% endif %}
   volumes:
   - name: ssl-certs-host
@@ -114,4 +117,7 @@ spec:
   - hostPath:
       path: "{{ kube_config_dir }}/cloud_config"
     name: cloudconfig
+  - hostPath:
+      path: /var/lib/cloud/data
+    name: clouddata
 {% endif %}

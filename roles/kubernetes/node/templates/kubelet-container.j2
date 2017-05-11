@@ -26,6 +26,7 @@
   -v /var/run:/var/run:rw \
   -v {{kube_config_dir}}:{{kube_config_dir}}:ro \
   -v /etc/os-release:/etc/os-release:ro \
+  -v /var/lib/cloud/data:/var/lib/cloud/data:ro \
   {{ hyperkube_image_repo }}:{{ hyperkube_image_tag}} \
   ./hyperkube kubelet \
   "$@"
